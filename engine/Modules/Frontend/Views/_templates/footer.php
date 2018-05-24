@@ -6,8 +6,8 @@
 
 </div>
 
-<?php echo $this->loadJSFile("jquery/jquery-3.1.1.min.js"); ?>
-<?php echo $this->loadJSFile("semantic/semantic.min.js"); ?>
+<?php echo $this->loadJSFile($this->getConfig("URL") . "/vendor/components/jquery/jquery.min.js"); ?>
+<?php echo $this->loadJSFile($this->getConfig("URL") . "/vendor/semantic/ui/dist/semantic.min.js"); ?>
 
 <script type="text/javascript">
     $(document)

@@ -5,7 +5,7 @@ use Core\Service\Service;
 
 class App
 {
-    private $url_modules = array('backend', 'frontend');
+    private $url_modules = array('backend', 'frontend','api');
     private $url_module = 'frontend';
 
     private $url_controller = null;
@@ -77,6 +77,7 @@ class App
         Service::defAuth('\Core\Auth\Auth');
 
         Service::defForm('\Core\Helpers\Form');
+        Service::defJson('\Core\Helpers\Json');
         Service::defRequest('\Core\Request\Request');
         Service::defRedirect('\Core\Request\Redirect');
         Service::defUploader('\Core\System\Uploader', array($config["PATH_UPLOADS"], 1024 * 1024 * 10));

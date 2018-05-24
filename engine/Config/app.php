@@ -25,7 +25,7 @@ $config = array(
 
 if ($_SERVER["HTTP_HOST"] == "localhost") {
     $config["DB_HOST"] = "localhost";
-    $config["DB_NAME"] = "newslite";
+    $config["DB_NAME"] = "mysuperpocket";
     $config["DB_USER"] = "root";
     $config["DB_PASS"] = "123456";
 }else{

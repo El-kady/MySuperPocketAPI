@@ -8,8 +8,8 @@
 
     <title><?php echo $this->get("page_title", $this->getConfig("site_name")); ?></title>
 
-    <?php echo $this->loadCSSLink("semantic/semantic.min.css"); ?>
-    <?php echo $this->loadCSSLink("frontend/theme.css"); ?>
+    <?php echo $this->loadCSSLink($this->getConfig("URL") . "/vendor/semantic/ui/dist/semantic.min.css"); ?>
+    <?php echo $this->loadCSSLink($this->getConfig("URL") . "/assets/frontend/theme.css"); ?>
 
 </head>
 
