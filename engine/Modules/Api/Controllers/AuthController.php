@@ -26,12 +26,10 @@ class AuthController extends ApiController
         $data = [
 
             "name" => Service::getRequest()->post("name"),
-            "country" => Service::getRequest()->post("country"),
             "phone_number" => Service::getRequest()->post("email"),
             "password" => Service::getRequest()->post("password"),
-            "retype_password" => Service::getRequest()->post("retype_password"),
         ];
-
+var_dump($_REQUEST);
 
         $this->user->register($data);
 

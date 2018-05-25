@@ -1,6 +1,6 @@
 <?php
 return [
-    "HOME_PAGE" => "Home Page",
+    "HOME_PAGE" => "الرئيسية",
     "DASHBOARD" => "Dashboard",
     "SETTINGS" => "Settings",
     "CATEGORIES" => "Categories",
@@ -53,11 +53,11 @@ return [
     "HOME" => "Home",
     "HOME_TITLE" => "You are at home",
 
-    "EMAIL" => "E-mail address",
-    "PASSWORD" => "Password",
-    "RETYPE_PASSWORD" => "Re-type Password",
-    "NAME" => "Name",
-    "USER_PHOTO" => "User Photo",
+    "PHONE" => "الهاتف",
+    "PASSWORD" => "كلمة المرور",
+    "RETYPE_PASSWORD" => "تاكيد كلمة المرور",
+    "NAME" => "الاسم",
+    "USER_PHOTO" => "الصورة الشخصية",
 
 
     "SUBCATEGORIES" => "Subcategories",
@@ -65,21 +65,22 @@ return [
 
     "DATE" => "Date",
 
-
-    "REGISTER_HINT" => "Have an account?",
-    "LOGIN_HINT" => "New to us?",
-    "WEBSITE" => "Website",
+    "REGISTER_HINT" => "لديك حساب؟?",
+    "LOGIN_HINT" => "جديد لدينا؟?",
+    "WEBSITE" => "الموقع",
     "COMMENTS" => "Comments",
     "COMMENT_TITLE" => "Edit The Comment",
 
-    "EMAIL_OR_PASSWORD_WRONG" => "The Email or password is incorrect. Please try again.",
-    "FILL_ALL_FIELDS" => "Please fill all fields then try again.",
+    "PHONE_OR_PASSWORD_WRONG" => "رقم الهاتف او كلمة المرور غير صحيحين.",
+    "FILL_ALL_FIELDS" => "من فضلك قم بملىء جميع الحقول.",
 
-    "FIELD_IS_REQUIRED" => "%s is required",
+    "FIELD_IS_REQUIRED" => "لا يمكن ترك حقل '%s' فارغ",
 
-    "EMAIL_ALREADY_EXISTS" => "Email Is Already Exists",
-    "PASSWORDS_NOT_MATCH" => "Passwords Don't Match",
-    "EMAIL_NOT_VALID" => "Email address does not valid",
+    "PHONE_ALREADY_EXISTS" => "البريد مستخدم من قبل شخص اخر",
+    "EMAIL_ALREADY_EXISTS" => "الهاتف مستخدم من قبل شخص اخر",
+    "PASSWORDS_NOT_MATCH" => "كلمة المرور غير متطابقة",
+    "PHONE_NOT_VALID" => "الهاتف غير صحيح",
+    "EMAIL_NOT_VALID" => "البريد غير صحيح",
 
     "REQUEST_SENT" => "Request Sent Successfully",
     "REQUEST_TITLE" => "Send Your Request",
@@ -116,6 +117,7 @@ return [
     "SMTP_PASSWORD" => "SMTP Password",
     "WELCOME_EMAIL_TEMPLATE" => "Welcome Email Template",
 
-    "COUNTRY" => "Country",
-    "GENDER" => "Gender",
+    "COUNTRY" => "الدولة",
+    "GENDER" => "الجنس",
+    "PHONE_NUMBER" => "رقم الهاتف"
 ];

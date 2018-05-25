@@ -38,24 +38,27 @@ class User extends BaseModel
             }
         }
 
+        if (!empty($data["email"]) && !filter_var($data["email"], FILTER_VALIDATE_EMAIL)) {
+            Service::getSession()->add('feedback_negative', Service::getText()->get("EMAIL_NOT_VALID"));
+        }
+
+        if (!empty($data["email"]) && $this->getRow($data["email"], "email")) {
+            Service::getSession()->add('feedback_negative', Service::getText()->get("EMAIL_ALREADY_EXISTS"));
+        }
+
         if (!empty($data["phone"]) && !filter_var($data["phone"], FILTER_VALIDATE_INT)) {
-            Service::getSession()->add('feedback_negative', "PHONE_NOT_VALID");
+            Service::getSession()->add('feedback_negative', Service::getText()->get("PHONE_NOT_VALID"));
         }
 
         if (!empty($data["phone"]) && $this->getRow($data["phone"], "phone")) {
-            Service::getSession()->add('feedback_negative', "PHONE_ALREADY_EXISTS");
-        }
-
-        if (!empty($data["retype_password"]) && $data["retype_password"] != $data["password"]) {
-            Service::getSession()->add('feedback_negative', Service::getText()->get("PASSWORDS_NOT_MATCH"));
+            Service::getSession()->add('feedback_negative', Service::getText()->get("PHONE_ALREADY_EXISTS"));
         }
 
         if (count(Service::getSession()->get('feedback_negative')) == 0) {
             $record = [
                 "account_type" => 1,
                 "name" => $data["name"],
-                "phone" => $data["phone"],
-                "country" => $data["country"],
+                "phone_number" => $data["phone_number"],
                 "password" => md5($data["password"]),
                 "status" => 1
             ];

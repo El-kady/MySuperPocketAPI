@@ -47,7 +47,7 @@ class Json
         $this->feedback_positive = (array) Service::getSession()->get('feedback_positive');
         $this->feedback_negative = (array) Service::getSession()->get('feedback_negative');
 
-        if (count($this->feedback_positive) > 0) {
+        if (count($this->feedback_negative) > 0) {
             self::setCode(400);
         }
 
