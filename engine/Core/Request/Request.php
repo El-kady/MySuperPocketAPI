@@ -47,4 +47,13 @@ class Request
         return $value;
     }
 
+    public function getHeader($key)
+    {
+        $all = getallheaders();
+        if (isset($all[$key])) {
+            return $all[$key];
+        }
+        return "";
+    }
+
 }

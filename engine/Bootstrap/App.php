@@ -70,6 +70,7 @@ class App
         );
 
         Service::defConfig('\Core\Helpers\ConfigLoader', array($config));
+        Service::defLogger('\Katzgrau\KLogger\Logger', array(ROOT . "temp"));
 
         Service::defText('\Core\System\Text', array(Service::getConfig()->get("site_lang")));
 

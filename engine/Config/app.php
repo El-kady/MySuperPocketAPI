@@ -35,5 +35,7 @@ if ($_SERVER["HTTP_HOST"] == "localhost") {
     $config["DB_PASS"] = "74fe063e";
 }
 
+$config["JWT_KEY"] = 'this secret is not secret :)!!!';
+
 return $config;
 

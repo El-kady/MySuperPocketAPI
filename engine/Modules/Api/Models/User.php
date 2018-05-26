@@ -11,11 +11,12 @@ class User extends BaseModel
 
     public function login($email, $password)
     {
+
         if (!empty($email) && !empty($password)) {
             if (($user = $this->getRow($email, "email"))) {
                 if (md5($password) == $user['password']) {
                     if (Service::getAuth()->setLogin($user)) {
-                        return true;
+                        return $user;
                     }
                 } else {
                     Service::getSession()->add('feedback_negative', Service::getText()->get("EMAIL_OR_PASSWORD_WRONG"));
@@ -58,6 +59,7 @@ class User extends BaseModel
             $record = [
                 "account_type" => 1,
                 "name" => $data["name"],
+                "email" => $data["email"],
                 "phone_number" => $data["phone_number"],
                 "password" => md5($data["password"]),
                 "status" => 1
