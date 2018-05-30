@@ -6,6 +6,7 @@
         "components/bootstrap": "^3.3",
         "mobiledetect/mobiledetectlib": "^2.8",
         "firebase/php-jwt": "^5.0",
-        "katzgrau/klogger": "dev-master"
+        "katzgrau/klogger": "dev-master",
+        "rbdwllr/reallysimplejwt": "^1.0"
     }
 }

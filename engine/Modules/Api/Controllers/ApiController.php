@@ -15,7 +15,7 @@ class ApiController extends BaseController
         parent::__construct();
         Service::getJson()->allowMethods();
 
-        if (false == in_array($this->name, array("AuthController"))) {
+        if (false == in_array($this->name, array("AuthController","PagesController"))) {
             $authorization = Service::getRequest()->getHeader("Authorization");
             if (false == empty($authorization)) {
                 list($jwt) = sscanf($authorization, 'Bearer %s');
@@ -23,8 +23,9 @@ class ApiController extends BaseController
                     Service::getLogger()->info("JWT", array($jwt, Service::getConfig()->get("JWT_KEY")));
 
                     try {
-                        $token = JWT::decode($jwt, Service::getConfig()->get("JWT_KEY"), array('HS512'));
+                        $token = Token::validate($jwt, Service::getConfig()->get("JWT_KEY"));
                     } catch (Exception $e) {
+                        exit($e->getMessage());
                         header('HTTP/1.0 401 Unauthorized');
                     }
 

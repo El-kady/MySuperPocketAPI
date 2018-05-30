@@ -4,10 +4,34 @@ namespace Modules\Api\Models;
 
 use \Core\Service\Service;
 use \Core\System\BaseModel;
+use \ReallySimpleJWT\Token;
 
 class User extends BaseModel
 {
     protected $table = "users";
+
+
+    public function getJWT($user){
+
+        Service::getLogger()->info("User logged",[$user['email']]);
+
+        $tokenId    = base64_encode(mcrypt_create_iv(32));
+        $expireation   = date('c',strtotime('+1 year'));
+        $serverName = Service::getConfig()->get("JWT_KEY");
+
+        $secretKey = Service::getConfig()->get("JWT_KEY");
+        Service::getLogger()->info("Into",[$tokenId,$expireation,$serverName,$secretKey]);
+
+        try {
+            $jwt = Token::getToken($tokenId, $secretKey, $expireation, $serverName);
+            Service::getLogger()->info("User JWT",[$jwt]);
+            return $jwt;
+        } catch (\Exception $e) {
+            Service::getSession()->add('feedback_negative', $e->getMessage());
+        }
+
+        return '';
+    }
 
     public function login($email, $password)
     {

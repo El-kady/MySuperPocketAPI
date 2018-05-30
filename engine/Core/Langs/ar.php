@@ -1,20 +1,21 @@
 <?php
 return [
     "HOME_PAGE" => "الرئيسية",
-    "DASHBOARD" => "Dashboard",
-    "SETTINGS" => "Settings",
+    "DASHBOARD" => "نظرة عامة",
+    "SETTINGS" => "الاعدادات",
     "CATEGORIES" => "Categories",
-    "USERS" => "Users",
+    "USERS" => "المستخدمين",
     "POSTS" => "Posts",
+    "PAGES" => "الصفحات",
 
     "ABOUT_US" => "About Us",
 
 
-    "CONTENT" => "Content",
+    "CONTENT" => "المحتوى",
 
-    "MY_ACCOUNT" => "My Account",
-    "ADMIN_PANEL" => "Admin Panel",
-    "LOGOUT" => "Logout",
+    "MY_ACCOUNT" => "حسابى",
+    "ADMIN_PANEL" => "لوحة التحكم",
+    "LOGOUT" => "خروج",
     "SITE_SLOGAN" => "Site Slogan",
     "SITE_NAME" => "Site Name",
     "SITE_LANG" => "Site Language",
@@ -26,13 +27,13 @@ return [
     "PRIMARY_CATEGORY" => "Primary Category",
     "CHOOSE_ONE" => "Choose One",
 
-    "TITLE" => "Title",
-    "ADD" => "Add",
-    "START" => "Start",
-    "SAVE" => "Save",
-    "EDIT" => "Edit",
+    "TITLE" => "العنوان",
+    "ADD" => "إضافة",
+    "START" => "بداية",
+    "SAVE" => "حفظ",
+    "EDIT" => "تعديل",
     "SEND_REQUEST" => "Send Request",
-    "DELETE" => "Delete",
+    "DELETE" => "حذف",
     "ACCOUNT_TYPE" => "Account Type",
     "STUDENT" => "Student",
     "ADMIN" => "Admin",
@@ -43,6 +44,7 @@ return [
     "INACTIVE" => "Inactive",
     "BANNED" => "Banned",
     "OPTIONS" => "Options",
+    "SLUG" => "الاسم المميز",
 
     "LOGIN" => "Login",
     "LOGIN_TITLE" => "Log-in to your account",
@@ -77,7 +79,7 @@ return [
     "FIELD_IS_REQUIRED" => "لا يمكن ترك حقل '%s' فارغ",
 
     "PHONE_ALREADY_EXISTS" => "البريد مستخدم من قبل شخص اخر",
-    "EMAIL_ALREADY_EXISTS" => "الهاتف مستخدم من قبل شخص اخر",
+    "EMAIL_ALREADY_EXISTS" => "البريد مستخدم من قبل شخص اخر",
     "PASSWORDS_NOT_MATCH" => "كلمة المرور غير متطابقة",
     "PHONE_NOT_VALID" => "الهاتف غير صحيح",
     "EMAIL_NOT_VALID" => "البريد غير صحيح",
@@ -86,7 +88,7 @@ return [
     "REQUEST_TITLE" => "Send Your Request",
     "REQUEST_MATERIAL" => "Request Material",
 
-    "NO_ROWS" => "No data to display right now !",
+    "NO_ROWS" => "لا يوجد اى بيانات لعرضها حاليا !",
     "ERROR_PAGE_TITLE" => "That’s an error",
     "ERROR_PAGE_DESC" => "The requested URL was not found on this server. That’s all we know.",
     "MESSAGE_TITLE" => "You have a message !!",
@@ -119,5 +121,5 @@ return [
 
     "COUNTRY" => "الدولة",
     "GENDER" => "الجنس",
-    "PHONE_NUMBER" => "رقم الهاتف"
+    "PHONE_NUMBER" => "رقم الهاتف",
 ];

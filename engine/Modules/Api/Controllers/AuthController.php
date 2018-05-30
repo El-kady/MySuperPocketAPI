@@ -4,7 +4,6 @@ namespace Modules\Api\Controllers;
 
 use \Core\Service\Service;
 use \Modules\Api\Models\User;
-use \Firebase\JWT\JWT;
 
 class AuthController extends ApiController
 {
@@ -31,7 +30,11 @@ class AuthController extends ApiController
             "password" => Service::getRequest()->post("password"),
         ];
 
-        $this->user->register($data);
+        if ($this->user->register($data) && $user = $this->user->getRow($data["email"], "email")) {
+            if ($jwt = $this->user->getJWT($user)) {
+                Service::getJson()->setData(array('user' => $user,'token' => $jwt));
+            }
+        }
 
         Service::getJson()->render();
     }
@@ -41,41 +44,10 @@ class AuthController extends ApiController
         $email = Service::getRequest()->post("email");
         $password = Service::getRequest()->post("password");
 
-        if ($user = $this->user->login($email,$password)) {
-
-            Service::getLogger()->info("User logged",[$email]);
-
-            $tokenId    = base64_encode(mcrypt_create_iv(32));
-            $issuedAt   = time();
-            $notBefore  = $issuedAt - 10;
-            $expire     = $notBefore + 60;
-            $serverName = 'http://localhost/example';
-
-
-            $data = [
-                'iat'  => $issuedAt,         // Issued at: time when the token was generated
-                'jti'  => $tokenId,          // Json Token Id: an unique identifier for the token
-                'iss'  => $serverName,       // Issuer
-                'nbf'  => $notBefore,        // Not before
-                'exp'  => $expire,           // Expire
-                'data' => [                  // Data related to the signer user
-                    'user'   => $user
-                ]
-            ];
-
-            $secretKey = Service::getConfig()->get("JWT_KEY");
-            Service::getLogger()->info("secretKey",[$secretKey]);
-
-            $jwt = JWT::encode(
-                $data,
-                $secretKey,
-                'HS512'
-            );
-
-
-            Service::getLogger()->info("User JWT",[$jwt]);
-
-            Service::getJson()->setData(array('token' => $jwt));
+        if ($user = $this->user->login($email, $password)) {
+            if ($jwt = $this->user->getJWT($user)) {
+                Service::getJson()->setData(array('user' => $user,'token' => $jwt));
+            }
         }
 
         Service::getJson()->render();
