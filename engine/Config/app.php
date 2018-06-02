@@ -29,10 +29,11 @@ if ($_SERVER["HTTP_HOST"] == "localhost") {
     $config["DB_USER"] = "root";
     $config["DB_PASS"] = "123456";
 }else{
-    $config["DB_HOST"] = "us-cdbr-iron-east-05.cleardb.net";
-    $config["DB_NAME"] = "heroku_bc200a18482910d";
-    $config["DB_USER"] = "b83c64345611f9";
-    $config["DB_PASS"] = "74fe063e";
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $config["DB_HOST"] = trim($url["host"]);
+    $config["DB_NAME"] = trim($url["path"], '/');
+    $config["DB_USER"] = trim($url["user"]);
+    $config["DB_PASS"] = trim($url["pass"]);
 }
 
 $config["JWT_KEY"] = 'Thi$ secret is not secret 123 :)!!!';
