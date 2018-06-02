@@ -1,6 +1,6 @@
 <?php
 
-define('ENVIRONMENT', 'production');
+define('ENVIRONMENT', getenv("ENVIRONMENT"));
 
 if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
     error_reporting(E_ALL);
