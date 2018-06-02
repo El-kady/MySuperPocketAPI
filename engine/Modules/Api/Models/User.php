@@ -15,7 +15,7 @@ class User extends BaseModel
 
         Service::getLogger()->info("User logged",[$user['email']]);
 
-        $tokenId    = base64_encode(mcrypt_create_iv(32));
+        $tokenId    = base64_encode(random_bytes(32));
         $expireation   = date('c',strtotime('+1 year'));
         $serverName = Service::getConfig()->get("JWT_KEY");
 
