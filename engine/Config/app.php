@@ -1,10 +1,15 @@
 <?php
 
-define('ENVIRONMENT', 'development');
+define('ENVIRONMENT', 'production');
 
 if (ENVIRONMENT == 'development' || ENVIRONMENT == 'dev') {
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
+}
+
+if (ENVIRONMENT == 'production' || ENVIRONMENT == 'prod') {
+    error_reporting(0);
+    ini_set("display_errors", 0);
 }
 
 ini_set('session.cookie_httponly', 1);
@@ -13,7 +18,7 @@ $isSecureRequest = ((isset ($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) 
 $url_scheme=  $isSecureRequest ? 'https://' : 'http://';
 
 $config = array(
-    'URL' => $url_scheme . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']),
+    'URL' => rtrim($url_scheme . $_SERVER['HTTP_HOST'] . dirname($_SERVER['SCRIPT_NAME']),"/"),
 
     'DB_TYPE' => 'mysql',
     'DB_PORT' => '3306',
