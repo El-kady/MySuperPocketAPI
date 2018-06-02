@@ -7,8 +7,8 @@
 </footer>
 
 
-<?php echo $this->loadJSFile($this->getConfig("URL") . "/vendor/components/jquery/jquery.min.js"); ?>
-<?php echo $this->loadJSFile($this->getConfig("URL") . "/vendor/semantic/ui/dist/semantic.min.js"); ?>
+<?php echo $this->loadJSFile($this->getConfig("URL") . "/statics/components/jquery/jquery.min.js"); ?>
+<?php echo $this->loadJSFile($this->getConfig("URL") . "/statics/semantic/ui/dist/semantic.min.js"); ?>
 
 <script>
     $(document).ready(function(){

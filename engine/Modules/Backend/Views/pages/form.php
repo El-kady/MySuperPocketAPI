@@ -65,7 +65,7 @@
     </div>
 </div>
 
-<?php echo $this->loadJSFile($this->getConfig("URL") . "/vendor/ckeditor/ckeditor/ckeditor.js"); ?>
+<?php echo $this->loadJSFile($this->getConfig("URL") . "/statics/ckeditor/ckeditor/ckeditor.js"); ?>
 
 <script>
     CKEDITOR.replace( 'content' ,{
